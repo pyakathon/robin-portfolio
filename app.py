@@ -3,7 +3,10 @@ import yaml
 from pathlib import Path
 from PIL import Image
 
-st.set_page_config(page_title=config['name'], page_icon="🌒", layout="wide")
+st.set_page_config(
+    page_title="Md Robin Jamal",
+    page_icon="🌒",
+    layout="wide")
 
 # Font Awesome for icons
 st.markdown("<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'>", unsafe_allow_html=True)
