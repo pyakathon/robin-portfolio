@@ -3,6 +3,8 @@ import yaml
 from pathlib import Path
 from PIL import Image
 
+st.set_page_config(page_title=config['name'], page_icon="🌒", layout="wide")
+
 # Font Awesome for icons
 st.markdown("<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'>", unsafe_allow_html=True)
 
@@ -13,9 +15,6 @@ with open("config.yaml", "r") as f:
 # Load profile image
 image_path = Path("assets/profile.jpg")
 profile_pic = Image.open(image_path) if image_path.exists() else None
-
-# Page config
-st.set_page_config(page_title=config['name'], page_icon="🌒", layout="wide")
 
 # Dark Theme & Animations
 st.markdown("""
