@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Md. Robin Jamal – Project Coordinator, Strategy & Research, Product Operations">
   <meta name="keywords" content="Project Management, Product Ops, Market Research, Bangladesh, Md Robin Jamal">
-  <meta property="og:image" content="profile.jpg" />
   <title>Md. Robin Jamal | Portfolio</title>
   <link rel="icon" type="image/png" href="favicon.ico">
   <style>
@@ -15,15 +14,15 @@
       color: #1a1a1a;
       margin: 0;
       padding: 0;
-      transition: background 0.3s, color 0.3s;
     }
+
     header {
       background: #002b5c;
       color: #fff;
-      padding: 20px 10px 10px;
+      padding: 20px 10px 25px;
       text-align: center;
-      position: relative;
     }
+
     img.profile {
       width: 100px;
       height: 100px;
@@ -33,31 +32,29 @@
       background: #fff;
       margin-bottom: 10px;
     }
+
     section {
-      padding: 15px 20px;
+      padding: 10px 20px;
       max-width: 900px;
       margin: 0 auto;
       animation: fadeIn 1s ease-in;
     }
+
     h2 {
       border-bottom: 2px solid #ccc;
-      padding-bottom: 8px;
-      margin-bottom: 10px;
-      margin-top: 30px;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      margin-top: 25px;
     }
+
     .item {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-    .link {
-      color: #ffffff;
-      text-decoration: none;
+
+    ul {
+      padding-left: 20px;
     }
-    header .link {
-      color: white;
-    }
-    .link:hover {
-      text-decoration: underline;
-    }
+
     footer {
       background: #002b5c;
       color: #ccc;
@@ -65,13 +62,47 @@
       padding: 15px;
       font-size: 0.9em;
     }
-    ul {
-      padding-left: 20px;
+
+    .link {
+      color: #007bff;
+      text-decoration: none;
+      position: relative;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
+
+    .link::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -2px;
+      background-color: #007bff;
+      transition: width 0.3s ease;
+    }
+
+    .link:hover {
+      color: #0056b3;
+    }
+
+    .link:hover::after {
+      width: 100%;
+    }
+
     .dark-mode {
       background: #1e1e1e;
       color: #eee;
     }
+
+    .dark-mode .link {
+      color: #66bfff;
+    }
+
+    .dark-mode .link::after {
+      background-color: #66bfff;
+    }
+
     .toggle-btn {
       position: fixed;
       top: 10px;
@@ -83,6 +114,7 @@
       cursor: pointer;
       border-radius: 4px;
     }
+
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -98,35 +130,38 @@
     <p>Project Coordinator | Strategy & Research | Product Operations</p>
     <p>
       <a class="link" href="mailto:jamalmdrobin@gmail.com">jamalmdrobin@gmail.com</a> |
-      <a class="link" href="https://www.linkedin.com/in/robinjamal">LinkedIn</a> |
-      <a class="link" href="https://github.com/pyakathon">GitHub</a> |
+      <a class="link" href="https://www.linkedin.com/in/robinjamal" target="_blank">LinkedIn</a> |
+      <a class="link" href="https://github.com/pyakathon" target="_blank">GitHub</a> |
       <a class="link" href="Robin_Jamal_CV.pdf" download>Download CV</a>
     </p>
   </header>
 
   <section>
-    <h2 id="about">🔍 About Me</h2>
+    <h2>🔍 About Me</h2>
     <p>I’m a project operations specialist with 3 years of remote experience leading teams, coordinating strategy-aligned projects, and delivering business research insights. I thrive at the intersection of strategy, product, and technology, and I’m passionate about turning complexity into clarity.</p>
   </section>
 
   <section>
-    <h2 id="portfolio">📁 Portfolio Projects</h2>
+    <h2>📁 Portfolio Projects</h2>
     <div class="item">
       <strong>Mottu Business Case – Expansion & Churn Insights</strong><br />
-      Developed a strategic business case with customer lifecycle analysis and process improvement strategies. <a class="link" href="https://drive.google.com/file/d/1UACBRBHFR5lnuakyM56t_NnkV26RV0U5/view?usp=sharing">View PDF</a>
+      Developed a strategic business case with customer lifecycle analysis and process improvement strategies.
+      <a class="link" href="https://drive.google.com/file/d/1UACBRBHFR5lnuakyM56t_NnkV26RV0U5/view?usp=sharing" target="_blank">View PDF</a>
     </div>
     <div class="item">
       <strong>Remote Work: USA vs Canada</strong><br />
-      Research analysis of labor trends post-2020 with visual insights. <a class="link" href="https://github.com/pyakathon/remote-work-usa-canada">View Project</a>
+      Research analysis of labor trends post-2020 with visual insights.
+      <a class="link" href="https://github.com/pyakathon/remote-work-usa-canada" target="_blank">View Project</a>
     </div>
     <div class="item">
       <strong>ML Projects</strong><br />
-      Foundational data analysis and Python learning notebooks. <a class="link" href="https://github.com/pyakathon/ML-Projects">View GitHub</a>
+      Foundational data analysis and Python learning notebooks.
+      <a class="link" href="https://github.com/pyakathon/ML-Projects" target="_blank">View GitHub</a>
     </div>
   </section>
 
   <section>
-    <h2 id="experience">💼 Professional Experience</h2>
+    <h2>💼 Professional Experience</h2>
     <div class="item">
       <strong>Ansys ICA (Remote, Apr 2021 – Aug 2024)</strong><br />
       Project Coordinator & Assistant – Delivered consulting support, led VA teams, managed client meetings, strategy execution, and operations alignment.
@@ -142,7 +177,7 @@
   </section>
 
   <section>
-    <h2 id="education">🎓 Education & Certifications</h2>
+    <h2>🎓 Education & Certifications</h2>
     <ul>
       <li><strong>Bachelor of Social Sciences</strong>, University of Dhaka – Film & Media Studies (2018–2022)</li>
       <li><strong>Python with Machine Learning</strong> – Creative IT Institute (Mar 2023 – Sep 2023)</li>
@@ -151,7 +186,7 @@
   </section>
 
   <section>
-    <h2 id="skills">🛠 Core Competencies & Tools</h2>
+    <h2>🛠 Core Competencies & Tools</h2>
     <ul>
       <li>Project Management (Agile, Remote, Cross-functional)</li>
       <li>Customer Lifecycle Value Analysis & Retention Strategy</li>
@@ -164,7 +199,7 @@
   </section>
 
   <section>
-    <h2 id="activities">🎯 Extracurricular Activities</h2>
+    <h2>🎯 Extracurricular Activities</h2>
     <ul>
       <li>Volunteer English Instructor – Secondary & Higher Secondary Students</li>
       <li>TFP Film Club & Festival – Organizing Member</li>
