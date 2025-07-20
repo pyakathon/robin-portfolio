@@ -1,9 +1,21 @@
+from pathlib import Path
+import shutil
+
+# Define the index.html content
+html_path = Path("/mnt/data/index.html")
+
+# Write the file from canvas content
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Md. Robin Jamal – Project Coordinator, Strategy & Research, Product Operations">
+  <meta name="keywords" content="Project Management, Product Ops, Market Research, Bangladesh, Md Robin Jamal">
+  <meta property="og:image" content="profile.jpg" />
   <title>Md. Robin Jamal | Portfolio</title>
+  <link rel="icon" type="image/png" href="profile.jpg">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,6 +23,7 @@
       color: #333;
       margin: 0;
       padding: 0;
+      transition: background 0.3s, color 0.3s;
     }
     header {
       background: #1a1a1a;
@@ -22,6 +35,7 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      animation: fadeIn 1.2s ease-in;
     }
     h2 {
       border-bottom: 2px solid #ddd;
@@ -34,6 +48,9 @@
       color: #0066cc;
       text-decoration: none;
     }
+    .link:hover {
+      text-decoration: underline;
+    }
     footer {
       background: #1a1a1a;
       color: #aaa;
@@ -43,22 +60,52 @@
     ul {
       padding-left: 20px;
     }
+    img.profile {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 10px;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
+  <button class="toggle-btn" onclick="toggleMode()">Toggle Dark Mode</button>
+
   <header>
+    <img src="profile.jpg" alt="Md. Robin Jamal" class="profile">
     <h1>Md. Robin Jamal</h1>
     <p>Project Coordinator | Strategy & Research | Product Operations</p>
-    <p><a class="link" href="mailto:jamalmdrobin@gmail.com">jamalmdrobin@gmail.com</a> | <a class="link" href="https://www.linkedin.com/in/robinjamal">LinkedIn</a> | <a class="link" href="https://github.com/pyakathon">GitHub</a></p>
+    <p><a class="link" href="mailto:jamalmdrobin@gmail.com">jamalmdrobin@gmail.com</a> | <a class="link" href="https://www.linkedin.com/in/robinjamal">LinkedIn</a> | <a class="link" href="https://github.com/pyakathon">GitHub</a> | <a class="link" href="Robin%20Jamal_CV%20(2).pdf" download>Download CV</a></p>
   </header>
 
   <section>
-    <h2>🔍 About Me</h2>
-    <p>I’m a project operations specialist with 2.5+ years of remote experience leading teams, coordinating strategy-aligned projects, and delivering business research insights. I thrive at the intersection of strategy, product, and technology, and I’m passionate about turning complexity into clarity.</p>
+    <h2 id="about">🔍 About Me</h2>
+    <p>I’m a project operations specialist with 3 years of remote experience leading teams, coordinating strategy-aligned projects, and delivering business research insights. I thrive at the intersection of strategy, product, and technology, and I’m passionate about turning complexity into clarity.</p>
   </section>
 
   <section>
-    <h2>📁 Portfolio Projects</h2>
+    <h2 id="portfolio">📁 Portfolio Projects</h2>
     <div class="item">
       <strong>Mottu Business Case – Expansion & Churn Insights</strong><br />
       Developed a strategic business case with customer lifecycle analysis and process improvement strategies. <a class="link" href="https://drive.google.com/file/d/1UACBRBHFR5lnuakyM56t_NnkV26RV0U5/view?usp=sharing">View PDF</a>
@@ -74,7 +121,7 @@
   </section>
 
   <section>
-    <h2>💼 Professional Experience</h2>
+    <h2 id="experience">💼 Professional Experience</h2>
     <div class="item">
       <strong>Ansys ICA (Remote, Apr 2021 – Aug 2024)</strong><br />
       Project Coordinator & Assistant – Delivered consulting support, led VA teams, managed client meetings, strategy execution, and operations alignment.
@@ -90,7 +137,7 @@
   </section>
 
   <section>
-    <h2>🎓 Education & Certifications</h2>
+    <h2 id="education">🎓 Education & Certifications</h2>
     <ul>
       <li><strong>Bachelor of Social Sciences</strong>, University of Dhaka – Film & Media Studies (2018–2022)</li>
       <li><strong>Python with Machine Learning</strong> – Creative IT Institute (Mar 2023 – Sep 2023)</li>
@@ -99,20 +146,20 @@
   </section>
 
   <section>
-    <h2>🛠 Core Competencies & Tools</h2>
+    <h2 id="skills">🛠 Core Competencies & Tools</h2>
     <ul>
       <li>Project Management (Agile, Remote, Cross-functional)</li>
       <li>Customer Lifecycle Value Analysis & Retention Strategy</li>
       <li>Process & Workflow Optimization, SOP Creation</li>
       <li>Report Writing, Presentation Design, Data Storytelling</li>
       <li>Tools: Trello, Notion, Excel, Google Workspace, Slack</li>
-      <li>Technical: Python (Pandas), SQL (beginner), Jupyter</li>
+      <li>Technical: Python (Pandas), SQL, Jupyter</li>
       <li>Fluent English, Intercultural Communication, Team Leadership</li>
     </ul>
   </section>
 
   <section>
-    <h2>🎯 Extracurricular Activities</h2>
+    <h2 id="activities">🎯 Extracurricular Activities</h2>
     <ul>
       <li>Volunteer English Instructor – Secondary & Higher Secondary Students</li>
       <li>TFP Film Club & Festival – Organizing Member</li>
@@ -121,7 +168,18 @@
   </section>
 
   <footer>
-    &copy; 2024 Md. Robin Jamal | Portfolio | Designed by pyakathon
+    &copy; 2025 Md. Robin Jamal | Portfolio | Designed by pyakathon
   </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </body>
 </html>
+"""
+
+# Save the HTML file
+html_path.write_text(html_content.strip())
+html_path.name
