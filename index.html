@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Md. Robin Jamal – Project Coordinator, Strategy & Research, Product Operations">
   <meta name="keywords" content="Project Management, Product Ops, Market Research, Bangladesh, Md Robin Jamal">
+  <meta property="og:image" content="profile.jpg" />
   <title>Md. Robin Jamal | Portfolio</title>
   <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,95 +16,81 @@
       color: #1a1a1a;
       margin: 0;
       padding: 0;
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth;
     }
-
     header {
       background: #002b5c;
       color: #fff;
-      padding: 20px 10px 25px;
+      padding: 30px 20px 50px;
       text-align: center;
+      position: relative;
     }
-
     img.profile {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #fff;
       background: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease-in-out;
     }
-
+    img.profile:hover {
+      transform: scale(1.1);
+    }
     section {
-      padding: 10px 20px;
+      padding: 30px 20px;
       max-width: 900px;
       margin: 0 auto;
-      animation: fadeIn 1s ease-in;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 6px;
-      margin-bottom: 8px;
-      margin-top: 25px;
+      border-left: 5px solid #007bff;
+      padding-left: 15px;
+      margin-top: 40px;
+      font-size: 1.6em;
+      position: relative;
     }
-
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #007bff;
+      bottom: -5px;
+      left: 0;
+    }
     .item {
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
-
-    ul {
-      padding-left: 20px;
+    .link {
+      color: #007bff;
+      text-decoration: none;
     }
-
+    .link:hover {
+      text-decoration: underline;
+    }
     footer {
       background: #002b5c;
       color: #ccc;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       font-size: 0.9em;
     }
-
-    .link {
-      color: #007bff;
-      text-decoration: none;
-      position: relative;
-      font-weight: 500;
-      transition: color 0.3s ease;
+    ul {
+      padding-left: 20px;
     }
-
-    .link::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -2px;
-      background-color: #007bff;
-      transition: width 0.3s ease;
-    }
-
-    .link:hover {
-      color: #0056b3;
-    }
-
-    .link:hover::after {
-      width: 100%;
-    }
-
     .dark-mode {
       background: #1e1e1e;
       color: #eee;
     }
-
-    .dark-mode .link {
-      color: #66bfff;
-    }
-
-    .dark-mode .link::after {
-      background-color: #66bfff;
-    }
-
     .toggle-btn {
       position: fixed;
       top: 10px;
@@ -113,71 +101,78 @@
       padding: 8px 12px;
       cursor: pointer;
       border-radius: 4px;
+      z-index: 10;
     }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    .github-embed {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #007bff;
+    }
+    .timeline .item::before {
+      content: '\2022';
+      color: #007bff;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
     }
   </style>
 </head>
 <body>
   <button class="toggle-btn" onclick="toggleMode()">Toggle Dark Mode</button>
-
   <header>
     <img src="profile.jpg" alt="Md. Robin Jamal" class="profile">
     <h1>Md. Robin Jamal</h1>
     <p>Project Coordinator | Strategy & Research | Product Operations</p>
-    <p>
-      <a class="link" href="mailto:jamalmdrobin@gmail.com">jamalmdrobin@gmail.com</a> |
-      <a class="link" href="https://www.linkedin.com/in/robinjamal" target="_blank">LinkedIn</a> |
-      <a class="link" href="https://github.com/pyakathon" target="_blank">GitHub</a> |
-      <a class="link" href="Robin_Jamal_CV.pdf" download>Download CV</a>
-    </p>
+    <p><a class="link" href="mailto:jamalmdrobin@gmail.com">jamalmdrobin@gmail.com</a> | <a class="link" href="https://www.linkedin.com/in/robinjamal">LinkedIn</a> | <a class="link" href="https://github.com/pyakathon">GitHub</a> | <a class="link" href="Robin_Jamal_CV.pdf" download>Download CV</a></p>
   </header>
 
   <section>
-    <h2>🔍 About Me</h2>
+    <h2 id="about">🔍 About Me</h2>
     <p>I’m a project operations specialist with 3 years of remote experience leading teams, coordinating strategy-aligned projects, and delivering business research insights. I thrive at the intersection of strategy, product, and technology, and I’m passionate about turning complexity into clarity.</p>
   </section>
 
   <section>
-    <h2>📁 Portfolio Projects</h2>
+    <h2 id="portfolio">📁 Portfolio Projects</h2>
     <div class="item">
       <strong>Mottu Business Case – Expansion & Churn Insights</strong><br />
-      Developed a strategic business case with customer lifecycle analysis and process improvement strategies.
-      <a class="link" href="https://drive.google.com/file/d/1UACBRBHFR5lnuakyM56t_NnkV26RV0U5/view?usp=sharing" target="_blank">View PDF</a>
+      Developed a strategic business case with customer lifecycle analysis and process improvement strategies. <a class="link" href="https://drive.google.com/file/d/1UACBRBHFR5lnuakyM56t_NnkV26RV0U5/view?usp=sharing">View PDF</a>
     </div>
     <div class="item">
       <strong>Remote Work: USA vs Canada</strong><br />
-      Research analysis of labor trends post-2020 with visual insights.
-      <a class="link" href="https://github.com/pyakathon/remote-work-usa-canada" target="_blank">View Project</a>
+      Research analysis of labor trends post-2020 with visual insights. <a class="link" href="https://github.com/pyakathon/remote-work-usa-canada">View Project</a>
     </div>
     <div class="item">
       <strong>ML Projects</strong><br />
-      Foundational data analysis and Python learning notebooks.
-      <a class="link" href="https://github.com/pyakathon/ML-Projects" target="_blank">View GitHub</a>
+      Foundational data analysis and Python learning notebooks. <a class="link" href="https://github.com/pyakathon/ML-Projects">View GitHub</a>
     </div>
   </section>
 
   <section>
-    <h2>💼 Professional Experience</h2>
-    <div class="item">
-      <strong>Ansys ICA (Remote, Apr 2021 – Aug 2024)</strong><br />
-      Project Coordinator & Assistant – Delivered consulting support, led VA teams, managed client meetings, strategy execution, and operations alignment.
-    </div>
-    <div class="item">
-      <strong>Goodman Group LLC (Remote, May – Jun 2024)</strong><br />
-      Project & Account Management Assistant – Developed SOPs, supported PMO and executive operations.
-    </div>
-    <div class="item">
-      <strong>Bizfuel (Remote, Nov 2023 – Mar 2024)</strong><br />
-      Business Operations Specialist – Managed accounts, reported marketing metrics, led cold-calling team performance evaluation.
+    <h2 id="experience">💼 Professional Experience</h2>
+    <div class="timeline">
+      <div class="item">
+        <strong>Ansys ICA (Remote, Apr 2021 – Aug 2024)</strong><br />
+        Project Coordinator & Assistant – Delivered consulting support, led VA teams, managed client meetings, strategy execution, and operations alignment.
+      </div>
+      <div class="item">
+        <strong>Goodman Group LLC (Remote, May – Jun 2024)</strong><br />
+        Project & Account Management Assistant – Developed SOPs, supported PMO and executive operations.
+      </div>
+      <div class="item">
+        <strong>Bizfuel (Remote, Nov 2023 – Mar 2024)</strong><br />
+        Business Operations Specialist – Managed accounts, reported marketing metrics, led cold-calling team performance evaluation.
+      </div>
     </div>
   </section>
 
   <section>
-    <h2>🎓 Education & Certifications</h2>
+    <h2 id="education">🎓 Education & Certifications</h2>
     <ul>
       <li><strong>Bachelor of Social Sciences</strong>, University of Dhaka – Film & Media Studies (2018–2022)</li>
       <li><strong>Python with Machine Learning</strong> – Creative IT Institute (Mar 2023 – Sep 2023)</li>
@@ -186,7 +181,7 @@
   </section>
 
   <section>
-    <h2>🛠 Core Competencies & Tools</h2>
+    <h2 id="skills">🛠 Core Competencies & Tools</h2>
     <ul>
       <li>Project Management (Agile, Remote, Cross-functional)</li>
       <li>Customer Lifecycle Value Analysis & Retention Strategy</li>
@@ -199,13 +194,18 @@
   </section>
 
   <section>
-    <h2>🎯 Extracurricular Activities</h2>
+    <h2 id="activities">🎯 Extracurricular Activities</h2>
     <ul>
       <li>Volunteer English Instructor – Secondary & Higher Secondary Students</li>
       <li>TFP Film Club & Festival – Organizing Member</li>
       <li>TFP Cricket Team – Active Player in Inter-Department Tournaments</li>
     </ul>
   </section>
+
+  <div class="github-embed">
+    <h2>📊 GitHub Activity</h2>
+    <img src="https://ghchart.rshah.org/pyakathon" alt="GitHub Activity Chart for pyakathon" />
+  </div>
 
   <footer>
     &copy; 2025 Md. Robin Jamal | Portfolio | Designed by pyakathon
@@ -215,6 +215,18 @@
     function toggleMode() {
       document.body.classList.toggle('dark-mode');
     }
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("visible");
+        }
+      });
+    });
   </script>
 </body>
 </html>
